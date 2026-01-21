@@ -1,0 +1,41 @@
+#include <stdio.h>
+int verifyPin(); 
+
+int main() {
+    printf("--- Welcome to the ATM ---\n");
+    int success = verifyPin();
+    if (success) {
+        printf("\nWelcome to your dashboard. What would you like to do?\n");
+    } else {
+        printf("\nTransaction terminated.\n");
+    }
+
+    return 0;
+}
+int verifyPin() {
+    int saved_pin = 1234; 
+    int entered_pin;
+    int attempts = 0;
+    int max_attempts = 3;
+
+    while (attempts < max_attempts) {
+        printf("\nEnter your 4-digit PIN: ");
+        scanf("%d", &entered_pin);
+
+        if (entered_pin == saved_pin) {
+            printf("Access Granted! You can now access your account.\n");
+            return 1; 
+        } else {
+            attempts++;
+            int remaining = max_attempts - attempts;
+            
+            if (remaining > 0) {
+                printf("Incorrect PIN. You have %d attempts left.\n", remaining);
+            } else {
+                printf("\n*** CARD BLOCKED ***\n");
+                printf("Too many incorrect attempts. Please contact your bank.\n");
+            }
+        }
+    }
+    return 0; // Return 0 for "False" or Failure
+}
