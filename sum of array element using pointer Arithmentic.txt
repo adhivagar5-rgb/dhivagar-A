@@ -1,0 +1,30 @@
+problem  statement :1
+sum of array element using pointer Arithmentic
+write a C program to read n integer into an array and calculate their sum using pointer arithmetic.(not array indexing)
+rules:
+do not use arr[i]
+use pointer to access array elements
+use pointer increment(ptr++)
+#include <stdio.h>
+
+int main() {
+    int n, i;
+    int arr[100];
+    int *ptr;
+    int sum = 0;
+    printf("Enter the number of elements (n): ");
+    scanf("%d", &n);
+    printf("Enter %d integers:\n", n);
+    for (i = 0; i < n; i++) {
+        // Taking input: we pass the address directly using pointer arithmetic
+        // (arr + i) is the address of the i-th element
+        scanf("%d", (arr + i));
+    }
+    ptr = arr; 
+    for (i = 0; i < n; i++) {
+        sum += *ptr; 
+        ptr++;      
+    }
+    printf("\nThe sum of the array elements is: %d\n", sum);
+    return 0;
+}
