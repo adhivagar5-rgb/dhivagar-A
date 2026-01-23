@@ -1,0 +1,11 @@
+#include <stdio.h>
+int main() 
+  {
+      int number = 10;
+      int *point = &number;
+      int**secondpoint = &point;
+      printf("%d\n",number);
+      printf("%d\n",*point);
+      printf("%d\n",**secondpoint);
+       return 0;
+}
