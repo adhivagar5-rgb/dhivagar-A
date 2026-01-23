@@ -1,0 +1,16 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+
+int main() {
+    int numbers[5]={0,1,2,3,4};
+    int *point=numbers;
+    
+    
+    printf("%d \n",*(point +0));
+    printf("%d \n",*(point +1));
+    printf("%d \n",*(point +2));
+    printf("%d \n",*(point +3));
+    printf("%d\n",*(point +4));
+
+    return 0;
+}
