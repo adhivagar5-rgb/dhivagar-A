@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <string.h>
+void reverseString(char str[]) {
+    int n = strlen(str);
+    for (int i = 0; i < n / 2; i++) {
+        char temp = str[i];
+        str[i] = str[n - i - 1];
+        str[n - i - 1] = temp;
+    }
+}
+
+int main() {
+    char str1[100] = "Open";
+    char str2[] = "Source";
+    char input[100];
+    strcat(str1, str2); 
+    printf("Concatenated: %s\n", str1); 
+    printf("Type 'Apple' to match: ");
+    scanf("%s", input);
+
+    if (strcmp(input, "Apple") == 0) {
+        printf("Match found!\n");
+    } else {
+        printf("Match not found.\n");
+    }
+    reverseString(input);
+    printf("Your input reversed: %s\n", input);
+    printf("Final string length: %lu\n", strlen(input));
+
+    return 0;
+}
