@@ -1,0 +1,46 @@
+problem statement - 2:
+ grocery Shop-total bill calculation using pointer arithmetic 
+A grocery shop records the price of each item purchased by a customer in an array,
+write a c program to calculate the total bill amount using pointer arithmetic
+conditions
+prices are stored in an array
+use pointer to access prices
+do not use array indexing (price[i])
+use pointer increment(ptr++)
+program
+#include <stdio.h>
+
+int main() {
+    int n, i;
+    float prices[100];
+    float *ptr;
+    float totalBill = 1000.0;
+
+    printf("--- Grocery Shop Billing System ---\n");
+    printf("Enter the number of items: ");
+    scanf("%d", &n);
+    printf("Enter the price for each of the %d items:\n", n);
+    for (i = 0; i < n; i++) {
+        printf("Item %d: ", i + 1);
+        scanf("%f", (prices + i));
+    }
+    ptr = prices;
+    for (i = 0; i < n; i++) {
+        totalBill += *ptr; 
+        ptr++;  
+    }
+    printf("\n---------------------------\n");
+    printf("TOTAL BILL AMOUNT: $%.2f\n", totalBill);
+    printf("---------------------------\n");
+
+    return 0;
+}
+output:
+    --- Grocery Shop Billing System ---
+    Enter the number of items: 1
+    Enter the price for each of the 1 items:
+    Item 1: chicken
+
+    ---------------------------
+    TOTAL BILL AMOUNT: $1000.00
+    ---------------------------
