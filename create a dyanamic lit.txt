@@ -1,0 +1,53 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int n, extra, total, i;
+    int *empIDs;
+
+    // 1. Initial Allocation
+    printf("Enter initial number of employees: ");
+    scanf("%d", &n);
+
+    empIDs = (int*)malloc(n * sizeof(int));
+
+    if (empIDs == NULL) {
+        printf("Memory allocation failed!\n");
+        return 1;
+    }
+
+    printf("Enter %d employee IDs:\n", n);
+    for (i = 0; i < n; i++) {
+        scanf("%d", &empIDs[i]);
+    }
+
+    // 2. Increase memory using realloc()
+    printf("\nHow many more employees would you like to add? ");
+    scanf("%d", &extra);
+    total = n + extra;
+
+    // realloc adjusts the size and copies old data to the new location if necessary
+    empIDs = (int*)realloc(empIDs, total * sizeof(int));
+
+    if (empIDs == NULL) {
+        printf("Reallocation failed!\n");
+        return 1;
+    }
+
+    printf("Enter IDs for the %d new employees:\n", extra);
+    for (i = n; i < total; i++) {
+        scanf("%d", &empIDs[i]);
+    }
+
+    // 3. Display updated list
+    printf("\n--- Updated Employee List ---\n");
+    for (i = 0; i < total; i++) {
+        printf("Employee %d: ID %d\n", i + 1, empIDs[i]);
+    }
+
+    // 4. Free memory
+    free(empIDs);
+    printf("\nMemory freed successfully.\n");
+
+    return 0;
+}
