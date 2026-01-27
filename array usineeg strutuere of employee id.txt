@@ -1,0 +1,17 @@
+#include <stdio.h>
+struct Employee
+{
+    int id;
+    char name[50];
+    int phone;
+};
+
+int main()
+{  
+    struct Employee emp1 = {1234567,"Arun",908};
+    printf("ID: %d\n", emp1.id);
+    printf("Name: %s\n", emp1.name);
+    printf("Phone: %ld\n", emp1.phone);
+
+    return 0;
+}
