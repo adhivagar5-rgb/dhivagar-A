@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdlib.h>
+struct Supplier {
+    char name[30];
+    char loc[30];
+};
+struct Product {
+    int id;
+    char name[30];
+    float price;
+    struct Supplier *sup;
+};
+int main() {
+    struct Product p;
+    p.sup = (struct Supplier*)malloc(sizeof(struct Supplier));
+    printf("ID: "); scanf("%d", &p.id);
+    printf("Name: "); scanf("%s", p.name);
+    printf("Price: "); scanf("%f", &p.price);
+    printf("Supplier: "); scanf("%s", p.sup->name);
+    printf("Location: "); scanf("%s", p.sup->loc);
+    printf("\n--- Product ---\n");
+    printf("ID: %d\n", p.id);
+    printf("Name: %s\n", p.name);
+    printf("Price: %.2f\n", p.price);
+    printf("Supplier: %s (%s)\n", p.sup->name, p.sup->loc);
+    free(p.sup);
+    return 0;
+}
