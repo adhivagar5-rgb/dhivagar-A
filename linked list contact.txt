@@ -1,0 +1,50 @@
+inkedlist 
+define data pointer 
+1 node will be know next node 
+linked list, contact number store
+1.structure create
+2.main function
+{
+  1.memory allocation
+  2.element store
+  3.interconnection
+  4.pointing head
+  5.display
+ }
+
+#include <stdio.h>
+#include<stdlib.h>
+struct contact
+{
+  long int number;
+  struct contact *next;
+};
+int main()
+{
+    //using memory allocatons
+    struct contact *cont1 = (struct contact*) malloc(sizeof(struct contact));
+     struct contact *cont2 = (struct contact*) malloc(sizeof(struct contact));
+     struct contact *cont3 = (struct contact*) malloc(sizeof(struct contact));
+    //storing number
+    cont1 -> number = 7372662178;
+    cont2 -> number = 6374309976;
+    cont3 -> number = 9385942370;
+    //interconnection
+    cont1 -> next = cont2;
+    cont2 -> next = cont3;
+    cont3 -> next = NULL;
+    //pointing heat
+    struct contact *head = cont1;
+    //display
+    printf("contact: \n");
+    while(head != NULL)
+    {
+        printf("%ld ---->", head->number);
+        head = head->next;
+    }
+    printf("finish");
+
+    return 0;
+}
+     
+    
