@@ -1,0 +1,59 @@
+problem description 1
+A singly linked list is used to store integer values in sequential order, write a c program to insert a new element at the end of the linked list and display the updated list,
+the program should:
+Traverse the linked list to find the last node
+insert the new node at the end
+Ensure the last node points to NULL
+#include<stdio.h>
+#include<stdlib.h>
+
+struct contact
+{
+    long int number;
+    struct contact *next;
+}; // Added semicolon
+
+int main()
+{
+    struct contact *head = NULL, *temp;
+    
+    // Storage allocation for three nodes
+    struct contact *ct1 = (struct contact*) malloc(sizeof(struct contact));
+    struct contact *ct2 = (struct contact*) malloc(sizeof(struct contact));
+    struct contact *ct3 = (struct contact*) malloc(sizeof(struct contact));
+    
+    // Store numbers
+    ct1->number = 737355587;
+    ct2->number = 897456125;
+    ct3->number = 785412365;
+    
+    // Linking initial nodes
+    head = ct1;
+    ct1->next = ct2;
+    ct2->next = NULL; // Initially, ct2 is the end
+    
+    // Traverse the linked list to find the last node
+    temp = head;
+    while(temp->next != NULL) {
+        temp = temp->next;
+    }
+    
+    // Insert the new node (ct3) at the end
+    temp->next = ct3;
+    ct3->next = NULL; // Ensure the new last node points to NULL
+    
+    // Display the updated list
+    printf("Updated Linked List:\n");
+    temp = head;
+    while(temp != NULL) {
+        printf("Number: %ld\n", temp->number);
+        temp = temp->next;
+    }
+    
+    // Clean up memory
+    free(ct1);
+    free(ct2);
+    free(ct3);
+    
+    return 0;
+}
