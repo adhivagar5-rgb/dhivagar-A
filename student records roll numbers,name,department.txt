@@ -1,0 +1,32 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct studentrecords
+{
+    int rollnumber;
+    char name[50];
+    char department[50];
+    struct studentrecords *next;
+};
+int main()
+{
+    //using memory locations
+    struct studentrecords *sdrs1 = (struct studentrecords*)malloc(sizeof(struct studentrecords));
+    struct studentrecords *sdrs2 = (struct studentrecords*)malloc(sizeof(struct studentrecords));
+    scanf("%d%d",&sdrs1->rollnumber,&sdrs2->rollnumber);
+    scanf("%s%s",&sdrs1->name,&sdrs2->name);
+    scanf("%s%s",&sdrs1->department,&sdrs2->department);
+    //interconnection
+    sdrs1->next=sdrs2;
+    sdrs2->next=NULL;
+    //pointing heat
+    struct studentrecords *head = sdrs1;
+    //display
+    printf("studentrecords: \n");
+    while(head !=NULL)
+    {
+        printf("%d ---->",head->rollnumber);
+        head = head->next;
+    }
+    printf("NULL");
+    return 0;
+}
