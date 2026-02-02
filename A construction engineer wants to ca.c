@@ -1,0 +1,15 @@
+A construction engineer wants to calculate the side length of a square plot given its area
+task:
+1.read area (float)
+2. find and print the side length using sqrt()
+concept used :sqrt()
+#include <stdio.h>
+#include <math.h>
+int main() {
+    float area;
+    printf("Enter the area of the square: ");
+    scanf("%f", &area);
+    double side_length = sqrt((double)area);
+    printf("The side length is: %f\n", side_length);
+    return 0;
+}
